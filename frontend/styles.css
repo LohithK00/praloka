@@ -1,40 +1,81 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  background: #0f172a;
-  color: #f1f5f9;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+  font-family: 'Segoe UI', sans-serif;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  margin: 0;
+  color: #fff;
 }
-.container {
-  background: #1e293b;
-  padding: 2rem;
+
+.signup-container {
+  background: rgba(0, 0, 0, 0.8);
+  padding: 40px;
   border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  width: 350px;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
   text-align: center;
-  width: 100%;
-  max-width: 400px;
 }
-input, button {
-  width: 100%;
-  padding: 0.75rem;
-  margin: 0.5rem 0;
-  border-radius: 6px;
-  border: none;
-  font-size: 1rem;
-}
-input:focus {
-  outline: 2px solid #38bdf8;
-}
-button {
-  background: #38bdf8;
-  color: #0f172a;
-  font-weight: bold;
-  cursor: pointer;
-}
+
 .logo {
-  width: 100px;
-  margin-bottom: 1rem;
+  width: 80px;
+  margin-bottom: 15px;
+}
+
+.signup-container h2 {
+  font-size: 1.1rem;
+  margin-bottom: 25px;
+  color: #7ddcff;
+}
+
+form input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  background-color: #1e293b;
+  color: white;
+}
+
+form input::placeholder {
+  color: #9ca3af;
+}
+
+form button {
+  background-color: #38bdf8;
+  color: black;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  width: 100%;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+form button:hover {
+  background-color: #0ea5e9;
+}
+
+.otp-section {
+  display: flex;
+  gap: 10px;
+}
+
+.otp-section input {
+  flex: 2;
+}
+
+.otp-section button {
+  flex: 1;
+  padding: 12px 8px;
+  font-size: 12px;
 }

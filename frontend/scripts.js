@@ -1,32 +1,34 @@
-const BASE_URL = 'https://praloka-backend.onrender.com'; // Change to your Render backend later
+const sendOTP = async () => {
+  const email = document.getElementById("email").value;
+  if (!email) return alert("Please enter your email!");
 
-async function sendOTP() {
-  const email = document.getElementById('email').value;
-  const res = await fetch(`${BASE_URL}/send-otp`, {
+  const response = await fetch("https://praloka-backend.onrender.com/send-otp", {
     method: "POST",
-    headers: { 'Content-Type': 'application/json' },
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ email })
   });
 
-  const data = await res.json();
-  alert(data.message || data.error);
-}
+  const result = await response.json();
+  alert(result.message || result.error);
+};
 
-document.getElementById("signupForm").addEventListener("submit", async function(event) {
-  event.preventDefault();
+document.getElementById("signupForm").addEventListener("submit", async function (e) {
+  e.preventDefault();
 
-  const name = document.getElementById("name").value;
-  const email = document.getElementById("email").value;
-  const otp = document.getElementById("otp").value;
-  const password = document.getElementById("password").value;
-  const confirm_password = document.getElementById("confirm_password").value;
+  const data = {
+    name: document.getElementById("name").value,
+    email: document.getElementById("email").value,
+    otp: document.getElementById("otp").value,
+    password: document.getElementById("password").value,
+    confirm_password: document.getElementById("confirm_password").value,
+  };
 
-  const res = await fetch(`${BASE_URL}/register`, {
+  const response = await fetch("https://praloka-backend.onrender.com/register", {
     method: "POST",
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ name, email, otp, password, confirm_password })
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data)
   });
 
-  const data = await res.json();
-  alert(data.message || data.error);
+  const result = await response.json();
+  alert(result.message || result.error);
 });
