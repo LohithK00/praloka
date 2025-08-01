@@ -9,7 +9,12 @@ CORS(app)
 
 otp_store = {}
 
-# Send OTP
+# Set your Gmail + App Password here
+SMTP_EMAIL = 'lohithdarling55@gmail.com'  # Replace with your Gmail
+SMTP_PASSWORD = 'foktiyygwngkuwle'  # Replace with your Gmail App Password
+SMTP_SERVER = 'smtp.gmail.com'
+SMTP_PORT = 587
+
 @app.route("/send-otp", methods=["POST"])
 def send_otp():
     data = request.get_json()
@@ -21,12 +26,21 @@ def send_otp():
     otp = str(random.randint(100000, 999999))
     otp_store[email] = otp
 
-    # Simulate sending OTP (in real-world use SMTP or an email API)
-    print(f"Sending OTP {otp} to {email}")
+    subject = "Your Praloka OTP Code"
+    body = f"Your OTP for Praloka registration is: {otp}"
+    message = f"Subject: {subject}\n\n{body}"
 
-    return jsonify({"message": "OTP sent successfully"}), 200
+    try:
+        with smtplib.SMTP(SMTP_SERVER, SMTP_PORT) as server:
+            server.starttls()
+            server.login(SMTP_EMAIL, SMTP_PASSWORD)
+            server.sendmail(SMTP_EMAIL, email, message)
+        print(f"OTP {otp} sent to {email}")
+        return jsonify({"message": "OTP sent successfully"}), 200
+    except Exception as e:
+        print("Email sending failed:", str(e))
+        return jsonify({"error": "Failed to send OTP"}), 500
 
-# Register
 @app.route("/register", methods=["POST"])
 def register():
     data = request.get_json()
