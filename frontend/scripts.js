@@ -1,6 +1,7 @@
+
 const BASE_URL = 'https://praloka-backend.onrender.com';
 
-async function registerUser(event) {
+async function signupUser(event) {
   event.preventDefault();
   const name = document.getElementById("name").value;
   const email = document.getElementById("email").value;
@@ -12,13 +13,11 @@ async function registerUser(event) {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name, email, password })
     });
-
     const data = await res.json();
     alert(data.message || data.error);
-
-    if (res.ok) window.location.href = "login.html";
-  } catch (error) {
-    alert("Error connecting to backend");
+    if (data.message) window.location.href = 'login.html';
+  } catch (err) {
+    alert("Signup failed!");
   }
 }
 
@@ -33,7 +32,6 @@ async function loginUser(event) {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, password })
     });
-
     const data = await res.json();
     if (data.token) {
       alert("Login successful!");
@@ -41,7 +39,7 @@ async function loginUser(event) {
     } else {
       alert(data.error);
     }
-  } catch (error) {
-    alert("Error connecting to backend");
+  } catch (err) {
+    alert("Login failed!");
   }
 }
