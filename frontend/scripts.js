@@ -1,34 +1,32 @@
-const BASE_URL = 'https://praloka-backend.onrender.com';
+const BASE_URL = 'https://praloka-backend.onrender.com'; // Change to your Render backend later
 
 async function sendOTP() {
-  const email = document.getElementById("email").value;
-  if (!email) return alert("Please enter your email first.");
+  const email = document.getElementById('email').value;
   const res = await fetch(`${BASE_URL}/send-otp`, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ email })
   });
+
   const data = await res.json();
   alert(data.message || data.error);
 }
 
-async function registerUser(event) {
+document.getElementById("signupForm").addEventListener("submit", async function(event) {
   event.preventDefault();
+
   const name = document.getElementById("name").value;
   const email = document.getElementById("email").value;
   const otp = document.getElementById("otp").value;
   const password = document.getElementById("password").value;
-  const confirmPassword = document.getElementById("confirmPassword").value;
-
-  if (password !== confirmPassword) {
-    return alert("Passwords do not match");
-  }
+  const confirm_password = document.getElementById("confirm_password").value;
 
   const res = await fetch(`${BASE_URL}/register`, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ name, email, otp, password })
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ name, email, otp, password, confirm_password })
   });
+
   const data = await res.json();
   alert(data.message || data.error);
-}
+});

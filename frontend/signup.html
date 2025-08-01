@@ -1,25 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Signup - Praloka</title>
-  <link rel="stylesheet" href="styles.css" />
+  <title>Signup</title>
 </head>
 <body>
-  <div class="container">
-    <img src="logo.png" alt="Praloka Logo" class="logo" />
-    <h1>Praloka – Intelligence that works for you.</h1>
-    <form id="signupForm" onsubmit="registerUser(event)">
-      <input type="text" id="name" placeholder="Name" required />
-      <input type="email" id="email" placeholder="Email" required />
-      <button type="button" onclick="sendOTP()">Send OTP</button>
-      <input type="text" id="otp" placeholder="Enter OTP" required />
-      <input type="password" id="password" placeholder="Password" required />
-      <input type="password" id="confirmPassword" placeholder="Confirm Password" required />
-      <button type="submit">Register</button>
-    </form>
-  </div>
+  <h2>Signup</h2>
+  <form id="signupForm">
+    <input type="text" id="name" placeholder="Name" required><br><br>
+    <input type="email" id="email" placeholder="Email" required><br><br>
+    <button type="button" onclick="sendOTP()">Send OTP</button><br><br>
+    <input type="text" id="otp" placeholder="Enter OTP" required><br><br>
+    <input type="password" id="password" placeholder="Password" required><br><br>
+    <input type="password" id="confirm_password" placeholder="Confirm Password" required><br><br>
+    <button type="submit">Register</button>
+  </form>
+
   <script src="scripts.js"></script>
 </body>
 </html>
