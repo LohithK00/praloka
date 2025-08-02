@@ -1,0 +1,79 @@
+
+body.bg {
+  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+  font-family: 'Segoe UI', sans-serif;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.container {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.logo {
+  width: 80px;
+  margin-bottom: 0.5rem;
+}
+
+.brand {
+  font-size: 1.5rem;
+  color: #61dafb;
+  margin: 0;
+}
+
+.tagline {
+  font-size: 0.9rem;
+  color: #ccc;
+  margin-bottom: 1.5rem;
+}
+
+h2 {
+  margin-bottom: 1rem;
+}
+
+form input {
+  width: 100%;
+  padding: 10px;
+  margin: 0.5rem 0;
+  border: none;
+  border-radius: 6px;
+  background: #1a2a36;
+  color: white;
+}
+
+form button {
+  padding: 10px;
+  width: 100%;
+  background-color: #007BFF;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
+
+form button:hover {
+  background-color: #0056b3;
+}
+
+.otp-row {
+  display: flex;
+  gap: 0.5rem;
+}
+.otp-row input {
+  flex: 1;
+}
+.otp-row button {
+  width: auto;
+}

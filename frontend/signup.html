@@ -1,17 +1,30 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Signup</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Signup - Praloka</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
-  <h1>Signup</h1>
-  <form onsubmit="registerUser(event)">
-    <input type="text" id="name" placeholder="Name" required><br><br>
-    <input type="email" id="email" placeholder="Email" required><br><br>
-    <input type="password" id="password" placeholder="Password" required><br><br>
-    <button type="submit">Signup</button>
-  </form>
+<body class="bg">
+  <div class="container">
+    <img src="logo.png" alt="Praloka Logo" class="logo" />
+    <h1 class="brand">PRALOKA</h1>
+    <p class="tagline">Intelligence that works for you.</p>
+    <h2>Sign Up</h2>
+    <form id="signup-form">
+      <input type="text" placeholder="Name" name="name" required />
+      <input type="email" placeholder="Email" name="email" required />
+      <div class="otp-row">
+        <input type="text" placeholder="OTP" name="otp" required />
+        <button type="button" id="send-otp">Send OTP</button>
+      </div>
+      <input type="password" placeholder="Password" name="password" required />
+      <input type="password" placeholder="Confirm Password" name="confirm_password" required />
+      <button type="submit">Sign Up</button>
+    </form>
+  </div>
   <script src="scripts.js"></script>
 </body>
 </html>
